@@ -367,9 +367,11 @@ export default function Services() {
                       </div>
                     ))}
                   </div>
-                  <Link to={service.link} className="inline-flex items-center gap-1 text-[#002147] text-sm font-bold hover:gap-2 transition-all mt-auto">
-                    Learn More <ChevronRight size={15} />
-                  </Link>
+                  {service.link !== '/services' && (
+                    <Link to={service.link} className="inline-flex items-center gap-1 text-[#002147] text-sm font-bold hover:gap-2 transition-all mt-auto">
+                      Learn More <ChevronRight size={15} />
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             ))}

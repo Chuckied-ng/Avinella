@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
@@ -13,20 +14,32 @@ import Careers from "@/pages/Careers";
 import Contact from "@/pages/Contact";
 import AdminLayout from "@/pages/admin/AdminLayout";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith("/admin");
 
   if (isAdmin) {
     return (
-      <Routes>
-        <Route path="/admin/*" element={<AdminLayout />} />
-      </Routes>
+      <>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/admin/*" element={<AdminLayout />} />
+        </Routes>
+      </>
     );
   }
 
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
