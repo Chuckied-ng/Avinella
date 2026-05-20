@@ -1,0 +1,9 @@
+@layer base {
+  :root {
+    /* Avinella Brand Colors from Logo */
+    --navy: 210 100% 14%; /* #002147 - Primary Navy */
+    --light-blue: 199 72% 62%; /* #5DADE2 - Logo Light Blue */
+    --gold: 43 76% 48%; /* #C9A02B - Accent Gold */
+    --white: 0 0% 100%; /* #FFFFFF */
+  }
+}
